@@ -31,7 +31,7 @@ function Shimmer({ className = "" }: { className?: string }) {
 export default function WorldCard({ world, isLoading = false }: WorldCardProps) {
   return (
     <article
-      className="w-full max-w-[375px] rounded-card border border-[#E0E8E8] bg-surface p-5 shadow-card"
+      className="w-full max-w-[375px] rounded-card border border-[#E0E8E8] bg-surface p-5 shadow-card transition-all duration-200 ease-out pointer-fine:hover:-translate-y-0.5 pointer-fine:hover:shadow-card-hover"
       aria-busy={isLoading || undefined}
     >
       {/* Cover — 160px tall, 12px radius. Same outer geometry both states. */}
@@ -97,7 +97,7 @@ export default function WorldCard({ world, isLoading = false }: WorldCardProps) 
       ) : (
         <button
           type="button"
-          className="mt-4 w-full animate-card-fade-in rounded-pill bg-teal px-6 py-2.5 text-sm font-semibold text-white"
+          className="mt-4 w-full animate-card-fade-in rounded-pill bg-teal px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-200 ease-out pointer-fine:hover:bg-[#00C2CC]"
         >
           Join World
         </button>
