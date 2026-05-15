@@ -43,7 +43,6 @@ export default function WorldCard({
       className="w-full max-w-[375px] rounded-card border border-[#E0E8E8] bg-surface p-5 shadow-card transition-all duration-200 ease-out pointer-fine:hover:-translate-y-0.5 pointer-fine:hover:shadow-card-hover"
       aria-busy={isLoading || undefined}
     >
-      {/* Cover — 160px tall, 12px radius. Same outer geometry both states. */}
       {isLoading ? (
         <Shimmer className="h-40 rounded-xl" />
       ) : (
@@ -60,7 +59,6 @@ export default function WorldCard({
         </div>
       )}
 
-      {/* AI label — its own entrance (overlaps card fade by design, see loom.md) */}
       {isLoading ? (
         <Shimmer className="mt-3 h-6 w-44 rounded-pill" />
       ) : (
@@ -69,7 +67,6 @@ export default function WorldCard({
         </div>
       )}
 
-      {/* World name */}
       {isLoading ? (
         <Shimmer className="mt-2 h-7 w-3/4 rounded-md" />
       ) : (
@@ -78,7 +75,6 @@ export default function WorldCard({
         </h3>
       )}
 
-      {/* Description */}
       {isLoading ? (
         <div className="mt-1 space-y-2">
           <Shimmer className="h-4 w-full rounded-md" />
@@ -90,7 +86,6 @@ export default function WorldCard({
         </p>
       )}
 
-      {/* Meta */}
       {isLoading ? (
         <Shimmer className="mt-3 h-[18px] w-1/2 rounded-md" />
       ) : (
@@ -100,7 +95,7 @@ export default function WorldCard({
         </div>
       )}
 
-      {/* Join button — skeleton matches real button's 43px (40px text+padding + 3px from the always-1.5px border that prevents the joined-toggle shift) */}
+      {/* h-[43px] not h-10 — matches real button height including the always-1.5px transparent border */}
       {isLoading ? (
         <Shimmer className="mt-4 h-[43px] w-full rounded-pill" />
       ) : (
