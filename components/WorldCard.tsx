@@ -100,9 +100,9 @@ export default function WorldCard({
         </div>
       )}
 
-      {/* Join button */}
+      {/* Join button — skeleton matches real button's 43px (40px text+padding + 3px from the always-1.5px border that prevents the joined-toggle shift) */}
       {isLoading ? (
-        <Shimmer className="mt-4 h-10 w-full rounded-pill" />
+        <Shimmer className="mt-4 h-[43px] w-full rounded-pill" />
       ) : (
         <button
           type="button"
