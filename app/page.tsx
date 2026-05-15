@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import WorldCard, { type World } from "@/components/WorldCard";
+import PointsAnimation from "@/components/PointsAnimation";
 
 const sampleWorld: World = {
   name: "Sunrise Trail Runners",
@@ -26,6 +27,9 @@ export default function Home() {
           Toggle: {isLoading ? "Loading" : "Loaded"}
         </button>
         <WorldCard world={sampleWorld} isLoading={isLoading} />
+        <div className="mt-4">
+          <PointsAnimation />
+        </div>
       </div>
     </main>
   );

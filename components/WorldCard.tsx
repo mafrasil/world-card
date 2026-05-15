@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 type TierType = "Open" | "Curated" | "Invite-only";
@@ -28,7 +31,13 @@ function Shimmer({ className = "" }: { className?: string }) {
   );
 }
 
-export default function WorldCard({ world, isLoading = false }: WorldCardProps) {
+export default function WorldCard({
+  world,
+  isLoading = false,
+  initialJoined = false,
+}: WorldCardProps) {
+  const [joined, setJoined] = useState(initialJoined);
+
   return (
     <article
       className="w-full max-w-[375px] rounded-card border border-[#E0E8E8] bg-surface p-5 shadow-card transition-all duration-200 ease-out pointer-fine:hover:-translate-y-0.5 pointer-fine:hover:shadow-card-hover"
@@ -97,9 +106,15 @@ export default function WorldCard({ world, isLoading = false }: WorldCardProps) 
       ) : (
         <button
           type="button"
-          className="mt-4 w-full animate-card-fade-in rounded-pill bg-teal px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-200 ease-out pointer-fine:hover:bg-[#00C2CC]"
+          onClick={() => setJoined((j) => !j)}
+          aria-pressed={joined}
+          className={`mt-4 w-full animate-card-fade-in rounded-pill border-[1.5px] px-6 py-2.5 text-sm font-semibold transition-join-button ${
+            joined
+              ? "border-teal bg-transparent text-teal"
+              : "border-transparent bg-teal text-white pointer-fine:hover:bg-[#00C2CC]"
+          }`}
         >
-          Join World
+          {joined ? "Joined" : "Join World"}
         </button>
       )}
     </article>
