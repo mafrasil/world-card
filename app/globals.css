@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+@theme {
+  --color-brand: #1A1A2E;
+  --color-teal: #00AFB9;
+  --color-surface: #F8FAFA;
+  --color-surface-cool: #E8F8F9;
+  --color-muted: #777788;
+  --color-success: #2D9B6F;
+
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+}
+
+body {
+  font-family: var(--font-sans), Arial, sans-serif;
+}
