@@ -17,8 +17,39 @@
 
   --shadow-card: 0 2px 12px rgba(0, 175, 185, 0.08);
   --shadow-card-hover: 0 6px 24px rgba(0, 175, 185, 0.15);
+
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+  --animate-card-fade-in: card-fade-in 300ms ease-out 0ms 1 normal both;
+  --animate-label-entrance: label-entrance 400ms ease-out 150ms 1 normal both;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes card-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes label-entrance {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 body {
   font-family: var(--font-sans), Arial, sans-serif;
+}
+
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
 }
